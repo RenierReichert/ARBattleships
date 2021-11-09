@@ -20,7 +20,7 @@ public class BoatControl : MonoBehaviour
 
         Debug.Log("BoatDirection: " + correctedDirection + "Tranform forward: " + transform.forward);
 
-        boat.AddForce( (correctedDirection.normalized * verticalInput), ForceMode.Acceleration);
+        boat.AddForce( (correctedDirection.normalized * verticalInput) / 10, ForceMode.Acceleration);
 
         // To see wether the direction needs to be normalized
         Debug.Log("Boatpower: " + correctedDirection.magnitude);
