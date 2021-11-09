@@ -8,9 +8,9 @@ public class Floatscript : MonoBehaviour
 
     public Rigidbody rigidbody;
     protected float depthBeforeSubmerged = 0.08f; //float values (Pun intended)
-    protected float displacementAmount = 3f;
-    protected int floaterCount = 6;
-    protected float waterDrag = 2f, waterAngularDrag = 0.4f;
+    protected float displacementAmount = 4f;
+    protected int floaterCount = 4;
+    protected float waterDrag = 2f, waterAngularDrag = 0.5f;
 
     private void FixedUpdate()
     {
@@ -28,6 +28,7 @@ public class Floatscript : MonoBehaviour
             
 
             //The displacement multiplier decides how "hard" the boat is being pushed up. 
+
             //TODO: Replace new vector3 with the normals of the waves
             rigidbody.AddForceAtPosition(new Vector3(0f, Mathf.Abs(Physics.gravity.y) * displacementMultiplier, 0f),transform.position, ForceMode.Acceleration );
 

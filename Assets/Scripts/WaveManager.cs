@@ -6,7 +6,7 @@ public class WaveManager : MonoBehaviour
 {
     public static WaveManager instance;
 
-    protected float amp = 0.5f, length = 1f, speed = 0.75f, offset = 0f;
+    protected float amp = 0.6f, length = 1.5f, speed = 2f, offset = 0f;
 
     private void Awake()
     {
@@ -29,6 +29,6 @@ public class WaveManager : MonoBehaviour
 
     public float GetWaveHeight(float _x)
     {
-        return (amp * Mathf.Sin(_x / length + offset) + 0.1f);
+        return (amp * Mathf.Sin(_x / length + offset));
     }
 }
