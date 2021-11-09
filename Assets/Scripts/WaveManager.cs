@@ -6,7 +6,7 @@ public class WaveManager : MonoBehaviour
 {
     public static WaveManager instance;
 
-    protected float amp = 0.6f, length = 1.5f, speed = 2f, offset = 0f;
+    protected float amp = 0.3f, length = 1.5f, speed = 1f, offset = 0f;
 
     private void Awake()
     {
@@ -26,9 +26,21 @@ public class WaveManager : MonoBehaviour
     {
         offset += Time.deltaTime * speed;
     }
-
+    
     public float GetWaveHeight(float _x)
     {
         return (amp * Mathf.Sin(_x / length + offset));
+    }
+    
+
+    public float GetWaveHorizontal(float _x)
+    {
+        return (amp * Mathf.Cos(_x / length + offset));
+    }
+
+    public Vector3 GetWaterNormal(float _x)
+    {
+        Vector3 waterTan = new Vector3(1 - GetWaveHeight(_x), GetWaveHorizontal(_x), 0);
+        return new Vector3(-waterTan.y, waterTan.x, 0);
     }
 }

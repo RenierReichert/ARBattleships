@@ -8,10 +8,12 @@ using UnityEngine;
 public class WaterManager : MonoBehaviour
 {
     private MeshFilter meshFilter;
+    private Vector3[] verticeAnchors;
 
     private void Awake()
     {
         meshFilter = GetComponent<MeshFilter>();
+        verticeAnchors = meshFilter.mesh.vertices;
     }
 
     private void Update()
@@ -21,9 +23,14 @@ public class WaterManager : MonoBehaviour
 
         for (int i = 0; i < vertices.Length; i++)
         {
-            vertices[i].y = WaveManager.instance.GetWaveHeight(transform.position.x + vertices[i].x);
+
+            
+            vertices[i].y = WaveManager.instance.GetWaveHeight(transform.position.x + verticeAnchors[i].x);
+            vertices[i].x = verticeAnchors[i].x + WaveManager.instance.GetWaveHorizontal(transform.position.x + verticeAnchors[i].x);
+
         }
 
+        
         meshFilter.mesh.vertices = vertices;
         meshFilter.mesh.RecalculateNormals();
     }
