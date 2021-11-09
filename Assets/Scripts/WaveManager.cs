@@ -6,7 +6,7 @@ public class WaveManager : MonoBehaviour
 {
     public static WaveManager instance;
 
-    public float amp = 0.1f, length = 0.5f, speed = 2f, offset = 0f;
+    public float amp = 0.6f, length = 2f, speed = 2f, offset = 0f;
 
     private void Awake()
     {
