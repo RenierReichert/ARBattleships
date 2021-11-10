@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class BoatControl : MonoBehaviour
 {
     public Text txt;
-    public Slider sails;
+    public Slider sails,wheel;
     public Rigidbody boat;
     public GameObject mast, front;
     protected Vector3 correctedDirection;
@@ -17,7 +17,7 @@ public class BoatControl : MonoBehaviour
         //These keys will be replaced with device orientation on a steering wheel on the screen.
         //TODO: put this in OnValueChanged
         float verticalInput = sails.value / 2; //Input.GetAxis("Vertical");
-
+        float horizontalInput = wheel.value;// Input.GetAxis("Horizontal");
 
         // correctedDirection = transform.forward;
 
@@ -39,9 +39,14 @@ public class BoatControl : MonoBehaviour
         
 
 
-        float horizontalInput = Input.GetAxis("Horizontal");
+        
 
         boat.AddTorque(transform.up * horizontalInput * 0.2f);
+
+    }
+
+    void ShootLeftCannon()
+    {
 
     }
 }
