@@ -8,10 +8,18 @@ ScriptsOnlyBuild:
     - WaveManager
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
+    Unity.XR.ARCore.Editor.dll:
+    - UnityEditor.XR.ARCore.ARCoreSettings
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
     - UnityEditor.TestTools.TestRunner.TestListCacheData
     - UnityEditor.TestTools.TestRunner.TestRun.TestJobDataHolder
+    UnityEngine.UI.dll:
+    - UnityEngine.EventSystems.EventSystem
+    - UnityEngine.EventSystems.StandaloneInputModule
+    - UnityEngine.UI.CanvasScaler
+    - UnityEngine.UI.GraphicRaycaster
+    - UnityEngine.UI.Text
     Vuforia.Unity.Engine.dll:
     - Vuforia.ImageTargetBehaviour
     - Vuforia.TurnOffBehaviour
@@ -55,9 +63,17 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
+      Script: {instanceID: 1534}
+    - Class: 114
       Script: {instanceID: 1728}
     - Class: 114
+      Script: {instanceID: 2200}
+    - Class: 114
       Script: {instanceID: 2500}
+    - Class: 114
+      Script: {instanceID: 2548}
+    - Class: 114
+      Script: {instanceID: 2710}
     - Class: 114
       Script: {instanceID: 2746}
     - Class: 114
@@ -73,14 +89,24 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 3034}
     - Class: 114
+      Script: {instanceID: 3350}
+    - Class: 114
       Script: {instanceID: 4128}
     - Class: 114
       Script: {instanceID: 4860}
     - Class: 115
       Script: {instanceID: 0}
+    - Class: 128
+      Script: {instanceID: 0}
     - Class: 157
       Script: {instanceID: 0}
     - Class: 196
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
       Script: {instanceID: 0}
   scriptHashData:
   - hash:
@@ -553,7 +579,7 @@ ScriptsOnlyBuild:
     className: XRReferenceObjectLibrary
   - hash:
       serializedVersion: 2
-      Hash: 340918038d0fea72b6effb7908e98f47
+      Hash: 89c4c901532472186323ea95cd1b6db5
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: BoatControl

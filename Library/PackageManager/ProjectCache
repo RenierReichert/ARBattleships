@@ -5,16 +5,16 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637716285558748941
-    m_Hash: 2392247951
+      ticks: 637721340177974234
+    m_Hash: 2372191071
   m_LockFileStatus:
     m_FilePath: D:/Unity AR/Battleshiptry2/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637716285559279657
-    m_Hash: 1180860137
+      ticks: 637721340178242081
+    m_Hash: 638988402
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_PackageAssets:
@@ -219,6 +219,85 @@ m_PackageAssets:
         url: https://github.cds.internal.unity3d.com/unity/com.unity.cloud.collaborate.git
         revision: 4001806dc89b25276d1382d5abffd71731b030e5
         path: 
+    - packageId: com.unity.device-simulator@3.0.2-preview
+      testable: 0
+      isDirectDependency: 1
+      version: 3.0.2-preview
+      source: 1
+      resolvedPath: D:\Unity AR\Battleshiptry2\Library\PackageCache\com.unity.device-simulator@3.0.2-preview
+      assetPath: Packages/com.unity.device-simulator
+      name: com.unity.device-simulator
+      displayName: Device Simulator
+      author:
+        name: 
+        email: 
+        url: 
+      category: 
+      type: 
+      description: Device Simulator is an alternative to the traditional Unity editor
+        Game window. By simulating Screen and SystemInfo class behavior, Device Simulator
+        aims to give an accurate picture of how an app will look on a device.
+      status: 4
+      errors: []
+      versions:
+        all:
+        - 1.0.0-preview
+        - 1.1.0-preview
+        - 1.2.0-preview
+        - 1.3.0-preview
+        - 2.0.0-preview
+        - 2.1.0-preview
+        - 2.1.1-preview
+        - 2.2.0-preview
+        - 2.2.1-preview
+        - 2.2.2-preview
+        - 2.2.3-preview
+        - 2.2.4-preview
+        - 3.0.0-preview
+        - 3.0.1-preview
+        - 3.0.2-preview
+        compatible:
+        - 1.0.0-preview
+        - 1.1.0-preview
+        - 1.2.0-preview
+        - 1.3.0-preview
+        - 2.0.0-preview
+        - 2.1.0-preview
+        - 2.1.1-preview
+        - 2.2.0-preview
+        - 2.2.1-preview
+        - 2.2.2-preview
+        - 2.2.3-preview
+        - 2.2.4-preview
+        - 3.0.0-preview
+        - 3.0.1-preview
+        - 3.0.2-preview
+        verified: 
+      dependencies: []
+      resolvedDependencies: []
+      keywords:
+      - Device
+      - Simulator
+      registry:
+        id: main
+        name: 
+        url: https://packages.unity.com
+        scopes: []
+        isDefault: 1
+        capabilities: 7
+      hasRegistry: 1
+      hideInEditor: 1
+      entitlements:
+        isAllowed: 1
+      isAssetStorePackage: 0
+      datePublishedTicks: 637668659000000000
+      documentationUrl: 
+      hasRepository: 1
+      repository:
+        type: git
+        url: git+https://github.com/Unity-Technologies/com.unity.device-simulator.git
+        revision: 8f5c15da9904bcf4be7c175fd16147502b30602c
+        path: 
     - packageId: com.unity.ide.rider@2.0.7
       testable: 0
       isDirectDependency: 1
@@ -363,6 +442,7 @@ m_PackageAssets:
         - 2.0.8
         - 2.0.9
         - 2.0.11
+        - 2.0.12
         compatible:
         - 1.0.2
         - 1.0.3
@@ -379,7 +459,8 @@ m_PackageAssets:
         - 2.0.8
         - 2.0.9
         - 2.0.11
-        verified: 2.0.11
+        - 2.0.12
+        verified: 2.0.12
       dependencies:
       - name: com.unity.test-framework
         version: 1.1.9
@@ -678,6 +759,7 @@ m_PackageAssets:
         - 2.1.5
         - 2.1.6
         - 2.2.0-preview.1
+        - 2.2.0-preview.2
         - 3.0.0-preview.1
         - 3.0.0-preview.3
         - 3.0.0-preview.4
@@ -827,6 +909,7 @@ m_PackageAssets:
         - 1.6.1
         - 1.6.2
         - 1.6.3
+        - 1.7.0-pre.1
         compatible:
         - 1.4.8
         - 1.5.0-pre.2
@@ -850,6 +933,7 @@ m_PackageAssets:
         - 1.6.1
         - 1.6.2
         - 1.6.3
+        - 1.7.0-pre.1
         verified: 1.4.8
       dependencies:
       - name: com.unity.modules.director

@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 
 public class Floatscript : MonoBehaviour
@@ -11,16 +13,17 @@ public class Floatscript : MonoBehaviour
     protected float displacementAmount = 4f;
     protected int floaterCount = 4;
     protected float waterDrag = 2f, waterAngularDrag = 0.5f;
+   
     
 
     private void FixedUpdate()
     {
+
         rigidbody.AddForceAtPosition(Physics.gravity / floaterCount, transform.position, ForceMode.Acceleration);
         
         float waveHeight = WaveManager.instance.GetWaveHeight(transform.position.x) ;
 
-       //  Debug.Log("Wave cos position:" + WaveManager.instance.GetWaveHorizontal(transform.position.x));
-       //  Debug.Log("Current position is" + transform.position.y + " And current waveheight is" + waveHeight);
+        
 
         // If floater is under water
         if (transform.position.y < waveHeight)
@@ -31,7 +34,7 @@ public class Floatscript : MonoBehaviour
 
             //The displacement multiplier decides how "hard" the boat is being pushed up. 
 
-            //TODO: Replace new vector3 with the normals of the waves
+            //DONE: Replace new vector3 with the normals of the waves
 
             Vector3 waterNormal = WaveManager.instance.GetWaterNormal(transform.position.x);
 
@@ -48,6 +51,7 @@ public class Floatscript : MonoBehaviour
 
             //Addforce will make the whole ship move, use torque to apply a force to make it rotate
             rigidbody.AddTorque(displacementMultiplier * -rigidbody.angularVelocity * waterAngularDrag* Time.fixedDeltaTime, ForceMode.VelocityChange);
+            
         }
     }
 }

@@ -4,3 +4,5 @@ Library/ArtifactDB-lock
 Library/Artifacts/
 Library/PackageCache
 Packages/com.ptc.vuforia.engine-10.2.5.tgz
+.vs/
+.vsconfig
