@@ -28,15 +28,11 @@ public class WaveManager : MonoBehaviour
     }
     
     public float GetWaveHeight(float _x)
-    {
-        return (amp * Mathf.Sin(_x / length + offset));
-    }
-    
+        =>(amp * Mathf.Sin(_x / length + offset));
 
     public float GetWaveHorizontal(float _x)
-    {
-        return (amp * Mathf.Cos(_x / length + offset));
-    }
+        =>(amp * Mathf.Cos(_x / length + offset));
+    
 
     public Vector3 GetWaterNormal(float _x)
     {

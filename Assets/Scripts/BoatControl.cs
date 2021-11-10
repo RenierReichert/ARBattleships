@@ -45,8 +45,17 @@ public class BoatControl : MonoBehaviour
 
     }
 
-    void ShootLeftCannon()
+    public void ShootLeftCannon()
     {
+        //TODO: I should fix the ship's mesh in blender so forward isnt the right side of the boat.
+        boat.AddForceAtPosition(boat.transform.forward * 5 , mast.transform.position , ForceMode.Impulse);
+       
+    }
+
+    public void ShootRightCannon()
+    {
+        //TODO: I should fix the ship's mesh in blender so forward isnt the right side of the boat.
+        boat.AddForceAtPosition(boat.transform.forward * -5, mast.transform.position, ForceMode.Impulse);
 
     }
 }
