@@ -6,7 +6,7 @@ public class WaveManager : MonoBehaviour
 {
     public static WaveManager instance;
 
-    protected float amp = 0.9f, length = 1.5f, speed = 1f, offset = 0f;
+    protected float amp = 0.6f, length = 1.5f, speed = 0.8f, offset = 0f;
 
     private void Awake()
     {
@@ -33,6 +33,12 @@ public class WaveManager : MonoBehaviour
     public float GetWaveHorizontal(float _x)
         =>(amp * Mathf.Cos(_x / length + offset));
     
+    /// <summary>
+    /// Gets wavemanager values for future multithreading
+    /// </summary>
+    /// <returns>amp, length, speed, offset</returns>
+    public Vector4 GetWaveValues()
+        => new Vector4(amp,length,speed,offset);
 
     public Vector3 GetWaterNormal(float _x)
     {

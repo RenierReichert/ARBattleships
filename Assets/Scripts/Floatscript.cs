@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class Floatscript : MonoBehaviour
 {
-
+    public Text txt;
     public Rigidbody rigidbody;
     protected float depthBeforeSubmerged = 0.08f; //float values (Pun intended)
     protected float displacementAmount = 4f;
@@ -20,7 +20,8 @@ public class Floatscript : MonoBehaviour
     {
 
         rigidbody.AddForceAtPosition(Physics.gravity / floaterCount, transform.position, ForceMode.Acceleration);
-        
+        if (txt)
+         txt.text = "Rigid body position" + rigidbody.position;
         float waveHeight = WaveManager.instance.GetWaveHeight(transform.position.x) ;
 
         
@@ -38,7 +39,7 @@ public class Floatscript : MonoBehaviour
 
             Vector3 waterNormal = WaveManager.instance.GetWaterNormal(transform.position.x);
 
-            Debug.Log(waterNormal);
+            // Debug.Log(waterNormal);
             // rigidbody.AddForceAtPosition(new Vector3(0f, Mathf.Abs(Physics.gravity.y) * displacementMultiplier, 0f),transform.position, ForceMode.Acceleration );
              rigidbody.AddForceAtPosition(new Vector3(waterNormal.x, Mathf.Abs(Physics.gravity.y) * displacementMultiplier, 0f),transform.position, ForceMode.Acceleration );
 

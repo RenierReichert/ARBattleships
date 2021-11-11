@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <LangVersion>7.3</LangVersion>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -47,7 +47,7 @@
   <PropertyGroup>
     <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <UnityProjectGenerator>Package</UnityProjectGenerator>
-    <UnityProjectGeneratorVersion>2.0.11</UnityProjectGeneratorVersion>
+    <UnityProjectGeneratorVersion>2.0.12</UnityProjectGeneratorVersion>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>Android:13</UnityBuildTarget>
     <UnityVersion>2020.3.21f1</UnityVersion>
@@ -58,6 +58,7 @@
     <Compile Include="Assets\Scripts\WaveManager.cs" />
     <Compile Include="Assets\Scripts\Blockspin.cs" />
     <Compile Include="Assets\Scripts\Floatscript.cs" />
+    <Compile Include="Assets\Scripts\CannonBall.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\StreamingAssets\Vuforia\BattleshipImage.xml" />
@@ -681,6 +682,9 @@
     <Reference Include="Unity.XR.ARSubsystems.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.XR.ARSubsystems.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.DeviceSimulator.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.DeviceSimulator.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEditor.XR.LegacyInputHelpers">
       <HintPath>Library\ScriptAssemblies\UnityEditor.XR.LegacyInputHelpers.dll</HintPath>
     </Reference>
@@ -698,9 +702,6 @@
     </Reference>
     <Reference Include="VuforiaScripts">
       <HintPath>Library\ScriptAssemblies\VuforiaScripts.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.DeviceSimulator.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.DeviceSimulator.Editor.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
