@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Scenes/Singleship.unity
+- path: Assets/Twoships.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0

@@ -4,3 +4,4 @@ Library/ArtifactDB-lock
 Library/Artifacts/
 Packages/
 Library/
+*.tgz
