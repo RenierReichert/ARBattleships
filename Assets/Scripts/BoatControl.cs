@@ -15,31 +15,29 @@ public class BoatControl : MonoBehaviour
 
     private void Start()
     {
-
     }
 
     public void UpdateInput()
     {
-        verticalInput = sails.value / 2; //Input.GetAxis("Vertical");
+        verticalInput = sails.value; //Input.GetAxis("Vertical");
         horizontalInput = wheel.value;// Input.GetAxis("Horizontal");
     }
 
     void Update()
     {
-        // debugText.text = "Under waves: " + (transform.position.y<waveHeight) + "\n Boat pos: " + transform.position.y + "\n Wave position: " + waveHeight;        
+       // debugText.text = $"Vertical: {verticalInput} Horizontal: {horizontalInput}";
     }
 
     private void FixedUpdate()
     {
         // TODO: Fix the mesh
-        correctedDirection = (front.transform.position - transform.position).normalized * verticalInput / 5;
+        correctedDirection = (front.transform.position - transform.position).normalized * verticalInput;
 
         //Boat should not be able to sail itself downwards or upwards strongly
         correctedDirection.y = (correctedDirection.y / 10);
         boat.AddForce(correctedDirection, ForceMode.Acceleration);
 
-        float waveHeight = WaveManager.instance.GetWaveHeight(transform.position.x);
-        boat.AddTorque(transform.up * horizontalInput * 0.2f);
+        boat.AddTorque(transform.up * horizontalInput * 0.5f);
     }
 
     public void ShootLeftCannon()
@@ -64,7 +62,7 @@ public class BoatControl : MonoBehaviour
 
     private void OnTriggerEnter(Collider cannonHit)
     {
-        Debug.Log("Collided with: " + cannonHit.gameObject.name + boat.position);
+        // Debug.Log("Collided with: " + cannonHit.gameObject.name + boat.position);
 
         //Check if we collide with a cannonball, remove cannonball
         if (cannonHit.gameObject.layer == 7)

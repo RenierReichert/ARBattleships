@@ -17,21 +17,36 @@ namespace Battleships.ServerScripts
 
         public override void OnConnectedToMaster()
         {
-            PhotonNetwork.JoinLobby();
+            if (PhotonNetwork.IsConnected)
+            {
+                Debug.Log("Reconnected");
+                PhotonNetwork.ReconnectAndRejoin();
+            }
+            else
+            {
+                Debug.Log("OnConnectedToMaster called");
+                PhotonNetwork.JoinLobby();
+            }
         }
 
         public void CreateRoom()
         {
-            PhotonNetwork.CreateRoom("ARShips");
+            Photon.Realtime.RoomOptions roomOptions = new Photon.Realtime.RoomOptions();
+            roomOptions.IsVisible = false;
+            roomOptions.MaxPlayers = 2;
+            PhotonNetwork.JoinOrCreateRoom("ARShips", roomOptions, typedLobby:default);
         }
 
-        public void JoinRoom()
-        {
-            PhotonNetwork.JoinRoom("ARShips");
-        }
         public override void OnJoinedLobby()
         {
-            SceneManager.LoadScene("Twoships");
+            Debug.Log("OnJoinedLobby called");
+           // SceneManager.LoadScene("Twoships");
+        }
+
+        public void OnDestroy()
+        {
+            PhotonNetwork.Disconnect();
+            Debug.Log(PhotonNetwork.NetworkClientState);
         }
     }
 

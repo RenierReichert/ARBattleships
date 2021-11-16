@@ -11,13 +11,13 @@ public class Floatscript : MonoBehaviour
     private float depthBeforeSubmerged = 0.08f; //float values (Pun intended)
     private float displacementAmount = 4f;
     private int floaterCount = 4;
-    private float waterDrag = 2f, waterAngularDrag = 0.5f;
+    private float waterDrag = 3f, waterAngularDrag = 0.5f;
 
     public void Start()
     {
         parentBoatRigidbody = GetComponentInParent<Rigidbody>();
         depthBeforeSubmerged *= transform.parent.localScale.y / 0.0002f;
-        Debug.Log($"This ship's name is {this.name} and height is {depthBeforeSubmerged}");
+       // Debug.Log($"This ship's name is {parentBoatRigidbody.name} and height is {depthBeforeSubmerged}");
     }
 
 
