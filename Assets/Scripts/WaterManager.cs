@@ -20,12 +20,6 @@ public class WaterManager : MonoBehaviour
 
     private void Update()
     {
-       // if(pizzapos != this.GetComponentInParent<GameObject>().transform.position)
-      //  {
-      //      pizzapos = this.GetComponentInParent<GameObject>().transform.position;
-      //      this.transform.position = pizzapos;
-      //  }
-
         // TODO: Multithread this.
         Vector3[] vertices = meshFilter.mesh.vertices;
 

@@ -11,21 +11,21 @@ public class BoatControl : MonoBehaviour
     public GameObject mast, front;
     public GameObject portSideCannon, starBoardCannon;
     protected Vector3 correctedDirection;
+    private float verticalInput, horizontalInput;
 
     private void Start()
     {
-        // Ignore collissions with the water plane here. For some reason it cant be disables using layers.
+
     }
-    // Update is called once per frame
+
+    public void UpdateInput()
+    {
+        verticalInput = sails.value / 2; //Input.GetAxis("Vertical");
+        horizontalInput = wheel.value;// Input.GetAxis("Horizontal");
+    }
+
     void Update()
     {
-        //These keys will be replaced with device orientation on a steering wheel on the screen.
-        //TODO: put this in OnValueChanged
-        float verticalInput = sails.value / 2; //Input.GetAxis("Vertical");
-        float horizontalInput = wheel.value;// Input.GetAxis("Horizontal");
-
-
-
         correctedDirection = ( (front.transform.position - transform.position).normalized * verticalInput / 5);
 
         //Boat should not be able to sail itself downwards or upwards strongly

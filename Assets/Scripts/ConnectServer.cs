@@ -1,24 +1,38 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Photon.Pun;
 using UnityEngine.SceneManagement;
 
-public class NewBehaviourScript : MonoBehaviourPunCallbacks
+namespace Battleships.ServerScripts
 {
-    // Start is called before the first frame update
-    void Start()
+    public class ConnectServer : MonoBehaviourPunCallbacks
     {
-        PhotonNetwork.ConnectUsingSettings();
+        // Start is called before the first frame update
+        void Start()
+        {
+            PhotonNetwork.ConnectUsingSettings();
+        }
+
+        public override void OnConnectedToMaster()
+        {
+            PhotonNetwork.JoinLobby();
+        }
+
+        public void CreateRoom()
+        {
+            PhotonNetwork.CreateRoom("ARShips");
+        }
+
+        public void JoinRoom()
+        {
+            PhotonNetwork.JoinRoom("ARShips");
+        }
+        public override void OnJoinedLobby()
+        {
+            SceneManager.LoadScene("Twoships");
+        }
     }
 
-    public override void OnConnectedToMaster()
-    {
-        PhotonNetwork.JoinLobby();
-    }
-
-    public override void OnJoinedLobby()
-    {
-        SceneManager.LoadScene("Twoships")
-    }
 }
