@@ -1,6 +1,6 @@
 {
-  "dependencies": {
-    "com.ptc.vuforia.engine": "file:com.ptc.vuforia.engine-10.2.5.tgz",
+    "dependencies": {
+    "com.ptc.vuforia.engine": "file:com.ptc.vuforia.engine-10.3.2.tgz",
     "com.unity.collab-proxy": "1.13.5",
     "com.unity.device-simulator": "3.0.2-preview",
     "com.unity.ide.rider": "2.0.7",
