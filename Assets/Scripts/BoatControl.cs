@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class BoatControl : MonoBehaviour
 {
-    public Text txt;
+    public Text debugText;
     public Slider sails,wheel;
     public Rigidbody boat, cannonBall;
     public GameObject mast, front;
@@ -26,21 +26,20 @@ public class BoatControl : MonoBehaviour
 
     void Update()
     {
-        correctedDirection = ( (front.transform.position - transform.position).normalized * verticalInput / 5);
+        // debugText.text = "Under waves: " + (transform.position.y<waveHeight) + "\n Boat pos: " + transform.position.y + "\n Wave position: " + waveHeight;        
+    }
+
+    private void FixedUpdate()
+    {
+        // TODO: Fix the mesh
+        correctedDirection = (front.transform.position - transform.position).normalized * verticalInput / 5;
 
         //Boat should not be able to sail itself downwards or upwards strongly
-        correctedDirection.y = (correctedDirection.y / 10); 
-
-
-        // Hack-y way of doing this, but its faster than rotating using sin and cos, since transform.forward is sideways for the boat
-        boat.AddForce(correctedDirection , ForceMode.Acceleration);
-
-
+        correctedDirection.y = (correctedDirection.y / 10);
+        boat.AddForce(correctedDirection, ForceMode.Acceleration);
 
         float waveHeight = WaveManager.instance.GetWaveHeight(transform.position.x);
-        txt.text = "Under waves: " + (transform.position.y<waveHeight) + "\n Boat pos: " + transform.position.y + "\n Wave position: " + waveHeight;        
         boat.AddTorque(transform.up * horizontalInput * 0.2f);
-
     }
 
     public void ShootLeftCannon()
@@ -48,8 +47,8 @@ public class BoatControl : MonoBehaviour
         //TODO: I should fix the ship's mesh in blender so forward isnt the right side of the boat.
         boat.AddForceAtPosition(boat.transform.forward * 3 , mast.transform.position , ForceMode.Impulse);
 
-        //TODO: if aimed right, call HitLeftCannnon();
 
+        //TODO: if aimed right, call HitLeftCannnon();
         Rigidbody cannonBallClone;
         cannonBallClone = Instantiate(cannonBall, portSideCannon.transform.position, Quaternion.identity);
         cannonBallClone.velocity = (boat.transform.forward * -5);
@@ -77,7 +76,6 @@ public class BoatControl : MonoBehaviour
         else if(cannonHit.gameObject.layer == 6)
         {
             boat.AddForceAtPosition( (cannonHit.GetComponent<Rigidbody>().position - boat.position) * -500, cannonHit.transform.position, ForceMode.Force);
-           // cannonHit.attachedRigidbody.AddForceAtPosition((boat.position - cannonHit.GetComponent<Rigidbody>().position  ) * -50, cannonHit.transform.position, ForceMode.Force);
         }
     }
 
@@ -90,6 +88,5 @@ public class BoatControl : MonoBehaviour
         cannonBallClone.velocity = (boat.transform.forward * 5);
         Destroy(cannonBallClone.gameObject , 5);
     }
-
     
 }

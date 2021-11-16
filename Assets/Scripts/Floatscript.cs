@@ -15,10 +15,9 @@ public class Floatscript : MonoBehaviour
 
     public void Start()
     {
-        Debug.Log("Is this code read??");
         parentBoatRigidbody = GetComponentInParent<Rigidbody>();
-        Debug.Log("Parent is: " + parentBoatRigidbody.name);
-       // depthBeforeSubmerged *= transform.parent.lossyScale.z / 0.0002f;
+        depthBeforeSubmerged *= transform.parent.localScale.y / 0.0002f;
+        Debug.Log($"This ship's name is {this.name} and height is {depthBeforeSubmerged}");
     }
 
 
