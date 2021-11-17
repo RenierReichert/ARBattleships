@@ -15,12 +15,12 @@ public class BoatControl : MonoBehaviourPunCallbacks
 
     private void Start()
     {
+        sails = GameObject.Find("Canvas/Sailslider").GetComponent<Slider>();
+        wheel = GameObject.Find("Canvas/ToBeWheel").GetComponent<Slider>();
     }
 
     public void UpdateInput()
     {
-        verticalInput = sails.value; //Input.GetAxis("Vertical");
-        horizontalInput = wheel.value;// Input.GetAxis("Horizontal");
     }
 
     void Update()
@@ -30,10 +30,17 @@ public class BoatControl : MonoBehaviourPunCallbacks
 
     private void FixedUpdate()
     {
+
+        verticalInput = sails.value; //Input.GetAxis("Vertical");
+        horizontalInput = wheel.value;// Input.GetAxis("Horizontal");
+
         // TODO: Fix the mesh
         correctedDirection = (front.transform.position - transform.position).normalized * verticalInput;
-       
 
+        Debug.Log($"Sails: {sails.name} {sails.value}");
+        Debug.Log($"Wheel: {wheel.name} {wheel.value}");
+        Debug.Log($"{front.transform.position} frond, middle {transform.position} -boatcontrol");
+        Debug.Log(correctedDirection);
         //Boat should not be able to sail itself downwards or upwards strongly
         correctedDirection.y = (correctedDirection.y / 10);
         boat.AddForce(correctedDirection, ForceMode.Acceleration);

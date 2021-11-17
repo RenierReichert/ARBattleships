@@ -1,8 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class WaveManager : MonoBehaviour
+using Photon.Pun;
+public class WaveManager : MonoBehaviour, IPunObservable
 {
     public static WaveManager instance;
 
@@ -45,4 +45,20 @@ public class WaveManager : MonoBehaviour
         Vector3 waterTan = new Vector3(1 - GetWaveHeight(_x), GetWaveHorizontal(_x), 0);
         return new Vector3(-waterTan.y, waterTan.x, 0);
     }
+
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.IsWriting)
+        {
+            float offsetvalue = offset;
+            stream.Serialize(ref offsetvalue);
+        }
+        else
+        {
+            float offsetvalue = 0;
+            stream.Serialize(ref offsetvalue);
+            offset = offsetvalue;
+        }
+    }
+
 }
