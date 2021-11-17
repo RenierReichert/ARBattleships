@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
-public class BoatControl : MonoBehaviour
+using Photon.Pun;
+public class BoatControl : MonoBehaviourPunCallbacks
 {
     public Text debugText;
     public Slider sails,wheel;
@@ -32,6 +32,7 @@ public class BoatControl : MonoBehaviour
     {
         // TODO: Fix the mesh
         correctedDirection = (front.transform.position - transform.position).normalized * verticalInput;
+       
 
         //Boat should not be able to sail itself downwards or upwards strongly
         correctedDirection.y = (correctedDirection.y / 10);
