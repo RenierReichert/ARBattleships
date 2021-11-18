@@ -16,8 +16,17 @@ public class Floatscript : MonoBehaviour
     public void Start()
     {
         parentBoatRigidbody = GetComponentInParent<Rigidbody>();
-        depthBeforeSubmerged *= transform.parent.localScale.y / 0.0002f;
-       // Debug.Log($"This ship's name is {parentBoatRigidbody.name} and height is {depthBeforeSubmerged}");
+
+        // Regular-sized boat has a scale of 0.05f
+        depthBeforeSubmerged *= transform.parent.localScale.y / 0.05f;
+
+        /* Make the mast float slightly so the ship wont be stuck upside down,
+         * but its less affected by gravity so it doesnt topple easily */
+        if (gameObject.name == "Mast")
+        {
+            depthBeforeSubmerged *= 2;
+            floaterCount = 10;
+        }
     }
 
 
