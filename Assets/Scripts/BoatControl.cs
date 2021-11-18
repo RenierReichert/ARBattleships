@@ -17,6 +17,7 @@ public class BoatControl : MonoBehaviourPunCallbacks
     {
         sails = GameObject.Find("Canvas/Sailslider").GetComponent<Slider>();
         wheel = GameObject.Find("Canvas/ToBeWheel").GetComponent<Slider>();
+        cannonBall = GameObject.Find("CannonBall").GetComponent<Rigidbody>();
     }
 
     public void UpdateInput()
