@@ -28,6 +28,8 @@ ScriptsOnlyBuild:
     - Packages.Rider.Editor.UnitTesting.CallbackData
     Unity.XR.ARCore.Editor.dll:
     - UnityEditor.XR.ARCore.ARCoreSettings
+    Unity.XR.ARCore.dll:
+    - UnityEngine.XR.ARCore.ARCoreLoader
     Unity.XR.Management.Editor.dll:
     - UnityEditor.XR.Management.XRGeneralSettingsPerBuildTarget
     Unity.XR.Management.dll:
@@ -47,8 +49,6 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.Shadow
     - UnityEngine.UI.Slider
     - UnityEngine.UI.Text
-    Vuforia.Unity.Editor.dll:
-    - Vuforia.EditorClasses.VuforiaConfigurationEditor
     Vuforia.Unity.Engine.dll:
     - Vuforia.ImageTargetBehaviour
     - Vuforia.TurnOffBehaviour
@@ -98,73 +98,73 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1542}
-    - Class: 114
       Script: {instanceID: 1544}
     - Class: 114
-      Script: {instanceID: 1550}
+      Script: {instanceID: 1546}
     - Class: 114
-      Script: {instanceID: 1666}
+      Script: {instanceID: 1552}
     - Class: 114
-      Script: {instanceID: 1782}
+      Script: {instanceID: 1664}
     - Class: 114
-      Script: {instanceID: 1826}
+      Script: {instanceID: 1780}
     - Class: 114
-      Script: {instanceID: 1862}
+      Script: {instanceID: 1824}
     - Class: 114
-      Script: {instanceID: 1866}
+      Script: {instanceID: 1860}
     - Class: 114
-      Script: {instanceID: 2434}
+      Script: {instanceID: 1864}
     - Class: 114
-      Script: {instanceID: 2496}
+      Script: {instanceID: 2432}
     - Class: 114
-      Script: {instanceID: 2672}
+      Script: {instanceID: 2494}
     - Class: 114
-      Script: {instanceID: 2724}
+      Script: {instanceID: 2670}
     - Class: 114
-      Script: {instanceID: 2898}
+      Script: {instanceID: 2722}
     - Class: 114
-      Script: {instanceID: 2936}
+      Script: {instanceID: 2896}
     - Class: 114
-      Script: {instanceID: 3022}
+      Script: {instanceID: 2934}
     - Class: 114
-      Script: {instanceID: 3078}
+      Script: {instanceID: 3020}
+    - Class: 114
+      Script: {instanceID: 3076}
+    - Class: 114
+      Script: {instanceID: 3090}
     - Class: 114
       Script: {instanceID: 3092}
     - Class: 114
-      Script: {instanceID: 3094}
+      Script: {instanceID: 3228}
     - Class: 114
-      Script: {instanceID: 3230}
+      Script: {instanceID: 3258}
     - Class: 114
-      Script: {instanceID: 3260}
+      Script: {instanceID: 3612}
     - Class: 114
-      Script: {instanceID: 3614}
+      Script: {instanceID: 3620}
     - Class: 114
-      Script: {instanceID: 3622}
+      Script: {instanceID: 3630}
     - Class: 114
-      Script: {instanceID: 3632}
+      Script: {instanceID: 3742}
     - Class: 114
-      Script: {instanceID: 3744}
+      Script: {instanceID: 4406}
     - Class: 114
-      Script: {instanceID: 4408}
+      Script: {instanceID: 4762}
     - Class: 114
-      Script: {instanceID: 4764}
+      Script: {instanceID: 4766}
     - Class: 114
-      Script: {instanceID: 4768}
+      Script: {instanceID: 4922}
     - Class: 114
-      Script: {instanceID: 4924}
+      Script: {instanceID: 5106}
     - Class: 114
-      Script: {instanceID: 5108}
+      Script: {instanceID: 5150}
     - Class: 114
-      Script: {instanceID: 5152}
+      Script: {instanceID: 5356}
     - Class: 114
-      Script: {instanceID: 5358}
+      Script: {instanceID: 5742}
     - Class: 114
-      Script: {instanceID: 5744}
+      Script: {instanceID: 5914}
     - Class: 114
-      Script: {instanceID: 5916}
-    - Class: 114
-      Script: {instanceID: 6276}
+      Script: {instanceID: 6274}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
