@@ -1010,7 +1010,7 @@ ScriptsOnlyBuild:
     className: XRReferenceObjectLibrary
   - hash:
       serializedVersion: 2
-      Hash: 4e43da3e4da461394bb66ea427434196
+      Hash: 8a6945e96334bfa80651451c4dc40228
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: BoatControl

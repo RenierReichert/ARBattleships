@@ -16,6 +16,7 @@ public class BoatControl : MonoBehaviourPunCallbacks
     private Slider sails, wheel;
     private float verticalInput, horizontalInput;
     private Material myBoat;
+    private int hits = 0;
 
     private void Start()
     {
@@ -24,17 +25,15 @@ public class BoatControl : MonoBehaviourPunCallbacks
         leftCannon = GameObject.Find("Canvas/LeftCannon").GetComponent<Button>();
         rightCannon = GameObject.Find("Canvas/RightCannon").GetComponent<Button>();
 
+        // Joystick controls?
+
         leftCannon.onClick.AddListener(ShootLeftCannon);
         rightCannon.onClick.AddListener(ShootRightCannon);
-        Debug.Log(GetComponent<MeshRenderer>().material);
 
         myBoat = Resources.Load<Material>("Materials/pinktexture");
-        Debug.Log(myBoat);
-
         if (this.photonView.IsMine)
         {
             GetComponent<MeshRenderer>().material = (myBoat);
-            Debug.Log(GetComponent<MeshRenderer>().material);
         }
     }
     private void FixedUpdate()
@@ -45,7 +44,7 @@ public class BoatControl : MonoBehaviourPunCallbacks
         sailingDirection = transform.forward * verticalInput;
 
 
-        //Boat should not be able to sail itself downwards or upwards strongly
+        //Boat should not be able to sail itself downwards or upwards strongly, TODO: Less realistic more arcade-y
         sailingDirection.y /= 8;
         boat.AddForce(sailingDirection, ForceMode.Acceleration);
 
@@ -140,11 +139,18 @@ public class BoatControl : MonoBehaviourPunCallbacks
             case 7:
                 boat.AddForceAtPosition(cannonHit.GetComponent<Rigidbody>().velocity * 6 + new Vector3(0, 30, 0), boat.transform.position, ForceMode.Impulse);
                 boat.AddTorque(boat.transform.forward * 60, ForceMode.Impulse);
-                Destroy(cannonHit, 0.2f);
+                hits++;
+                if (hits > 3)
+                {
+                    boat.transform.position = new Vector3(0, 1, 0);
+                    hits = 0;
+                }
+
+                Destroy(cannonHit, 0.2f);                
                 break;
 
             case 6:
-                boat.AddForceAtPosition((cannonHit.GetComponent<Rigidbody>().position - boat.position) * -500, cannonHit.transform.position, ForceMode.Force);
+                boat.AddForceAtPosition((cannonHit.GetComponent<Rigidbody>().position - boat.position) * -50, cannonHit.transform.position, ForceMode.Force);
                 break;
         }
     }
