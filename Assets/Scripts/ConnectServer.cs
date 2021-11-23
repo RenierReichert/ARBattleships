@@ -11,6 +11,7 @@ namespace Battleships.ServerScripts
     public class ConnectServer : MonoBehaviourPunCallbacks
     {
         private Text connectButtonText;
+        private GameObject createRoomButton;
         private Coroutine loadingAnimation;
 
         // Start is called before the first frame update
@@ -18,6 +19,7 @@ namespace Battleships.ServerScripts
         {
             PhotonNetwork.ConnectUsingSettings();
             connectButtonText = GameObject.Find("Canvas/CreateRoomButton/Text").GetComponent<Text>();
+            createRoomButton = GameObject.Find("Canvas/CreateRoomButton");
             loadingAnimation = StartCoroutine(LoadAnimation());
 
         }
@@ -31,12 +33,12 @@ namespace Battleships.ServerScripts
             }
             else
             {
-                Debug.Log("Something has gone wrong");
+                Debug.Log("Something has gone wrong, please restart the application");
             }
         }
         public override void OnJoinedLobby()
         {
-            Debug.Log("OnJoinedLobby called");
+            // Debug.Log("OnJoinedLobby called");
             StopCoroutine(loadingAnimation);
             connectButtonText.text = "Join\nmultiplayer";
             // SceneManager.LoadScene("Twoships");
@@ -44,7 +46,7 @@ namespace Battleships.ServerScripts
 
         public void JoinOrCreateRoom()
         {
-            Debug.Log("JoinOrCreateRoom called");
+            // Debug.Log("JoinOrCreateRoom called");
 
             if (PhotonNetwork.CurrentRoom is null)
             {
@@ -53,7 +55,7 @@ namespace Battleships.ServerScripts
                 roomOptions.MaxPlayers = 4;
                 PhotonNetwork.JoinOrCreateRoom("ARShips", roomOptions, typedLobby: default);
 
-                Debug.Log("Name of the current room: " + PhotonNetwork.CurrentRoom);
+             //   Debug.Log("Name of the current room: " + PhotonNetwork.CurrentRoom);
             }
             else
                 Debug.Log("Attempting to join room failed, already in room named: " + PhotonNetwork.CurrentRoom);
@@ -62,14 +64,16 @@ namespace Battleships.ServerScripts
         public override void OnJoinedRoom()
         {
             base.OnJoinedRoom();
-            Debug.Log("OnJoinedRoom called, room name: " + PhotonNetwork.CurrentRoom + " |  Spawning player in");
+           //  Debug.Log("OnJoinedRoom called, room name: " + PhotonNetwork.CurrentRoom + " |  Spawning player in");
 
-            PhotonNetwork.Instantiate("Player2", Vector3.zero, Quaternion.identity);
+            PhotonNetwork.Instantiate("Player2", new Vector3(0,5,0) , Quaternion.identity);
+            createRoomButton.SetActive(false);
+            
         }
         public void OnDestroy()
         {
             PhotonNetwork.Disconnect();
-            Debug.Log(PhotonNetwork.NetworkClientState);
+           // Debug.Log(PhotonNetwork.NetworkClientState);
         }
 
         private IEnumerator LoadAnimation()
