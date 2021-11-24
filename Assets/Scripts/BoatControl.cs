@@ -38,8 +38,8 @@ public class BoatControl : MonoBehaviourPunCallbacks
     }
     private void FixedUpdate()
     {
-        verticalInput = sails.value; 
-        horizontalInput = wheel.value;
+        verticalInput = Input.GetAxis("Vertical");//sails.value; 
+        horizontalInput = Input.GetAxis("Horizontal");//wheel.value;
 
         sailingDirection = transform.forward * verticalInput;
 
