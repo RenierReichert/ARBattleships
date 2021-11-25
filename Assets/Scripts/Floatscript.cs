@@ -7,9 +7,11 @@ using UnityEngine.UI;
 
 public class Floatscript : MonoBehaviour
 {
+    // Float properties. Puns are intended.
+
+    public float displacementAmount = 2f;
     protected Rigidbody parentBoatRigidbody;
-    private float depthBeforeSubmerged = 0.08f; //float values (Pun intended)
-    private float displacementAmount = 4f;
+    private float depthBeforeSubmerged = 0.08f;    
     private int floaterCount = 4;
     private float waterDrag = 3f, waterAngularDrag = 0.5f;
 

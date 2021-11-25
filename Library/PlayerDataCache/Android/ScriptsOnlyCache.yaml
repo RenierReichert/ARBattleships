@@ -3,6 +3,7 @@ ScriptsOnlyBuild:
     Assembly-CSharp.dll:
     - Battleships.ServerScripts.ConnectServer
     - BoatControl
+    - FixedJoystick
     - Floatscript
     - HitscanController
     - UIController
@@ -108,71 +109,73 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1552}
     - Class: 114
-      Script: {instanceID: 1664}
+      Script: {instanceID: 1666}
     - Class: 114
-      Script: {instanceID: 1780}
+      Script: {instanceID: 1782}
     - Class: 114
-      Script: {instanceID: 1824}
+      Script: {instanceID: 1826}
     - Class: 114
-      Script: {instanceID: 1860}
+      Script: {instanceID: 1862}
     - Class: 114
-      Script: {instanceID: 1864}
+      Script: {instanceID: 1866}
     - Class: 114
-      Script: {instanceID: 2434}
+      Script: {instanceID: 2436}
     - Class: 114
-      Script: {instanceID: 2496}
+      Script: {instanceID: 2498}
     - Class: 114
-      Script: {instanceID: 2670}
+      Script: {instanceID: 2672}
     - Class: 114
-      Script: {instanceID: 2722}
+      Script: {instanceID: 2724}
     - Class: 114
-      Script: {instanceID: 2896}
+      Script: {instanceID: 2898}
     - Class: 114
-      Script: {instanceID: 2934}
+      Script: {instanceID: 2936}
     - Class: 114
-      Script: {instanceID: 3020}
+      Script: {instanceID: 3022}
     - Class: 114
-      Script: {instanceID: 3076}
-    - Class: 114
-      Script: {instanceID: 3090}
+      Script: {instanceID: 3078}
     - Class: 114
       Script: {instanceID: 3092}
     - Class: 114
-      Script: {instanceID: 3230}
+      Script: {instanceID: 3094}
     - Class: 114
-      Script: {instanceID: 3260}
+      Script: {instanceID: 3232}
     - Class: 114
-      Script: {instanceID: 3614}
+      Script: {instanceID: 3262}
     - Class: 114
-      Script: {instanceID: 3622}
+      Script: {instanceID: 3616}
     - Class: 114
-      Script: {instanceID: 3632}
+      Script: {instanceID: 3624}
     - Class: 114
-      Script: {instanceID: 3744}
+      Script: {instanceID: 3634}
     - Class: 114
-      Script: {instanceID: 4408}
+      Script: {instanceID: 3746}
     - Class: 114
-      Script: {instanceID: 4764}
+      Script: {instanceID: 4410}
+    - Class: 114
+      Script: {instanceID: 4726}
     - Class: 114
       Script: {instanceID: 4768}
     - Class: 114
-      Script: {instanceID: 4924}
+      Script: {instanceID: 4772}
     - Class: 114
-      Script: {instanceID: 5108}
+      Script: {instanceID: 4928}
     - Class: 114
-      Script: {instanceID: 5152}
+      Script: {instanceID: 5112}
     - Class: 114
-      Script: {instanceID: 5222}
+      Script: {instanceID: 5156}
     - Class: 114
-      Script: {instanceID: 5360}
+      Script: {instanceID: 5226}
     - Class: 114
-      Script: {instanceID: 5746}
+      Script: {instanceID: 5364}
     - Class: 114
-      Script: {instanceID: 5918}
+      Script: {instanceID: 5750}
     - Class: 114
-      Script: {instanceID: 6280}
+      Script: {instanceID: 5922}
     - Class: 114
-      Script: {instanceID: 22556}
+      Script: {instanceID: 6284}
+    - Class: 114
+      Script: {instanceID: 18334}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1010,7 +1013,7 @@ ScriptsOnlyBuild:
     className: XRReferenceObjectLibrary
   - hash:
       serializedVersion: 2
-      Hash: 8a6945e96334bfa80651451c4dc40228
+      Hash: b2804b374338b99ff64678e1f6aa0c7c
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: BoatControl
@@ -2090,6 +2093,12 @@ ScriptsOnlyBuild:
     className: SignalTrack
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: HitscanController
+  - hash:
+      serializedVersion: 2
       Hash: ae1347d9113eee8b83c5c8047dcf31a8
     assemblyName: Assembly-CSharp.dll
     namespaceName: Photon.Chat.Demo
@@ -2636,7 +2645,7 @@ ScriptsOnlyBuild:
     className: ConnectionHandler
   - hash:
       serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+      Hash: 17b23a2f20ac3fb5b45e1f37c1d01ff0
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Floatscript
@@ -3182,10 +3191,34 @@ ScriptsOnlyBuild:
     className: UserIdUiForm
   - hash:
       serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+      Hash: 824e8d4cb47ffd88ddf959dbd4526585
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: HitscanController
+    className: DynamicJoystick
+  - hash:
+      serializedVersion: 2
+      Hash: ce669872a2be11bc686ea22961d8a3bb
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: FloatingJoystick
+  - hash:
+      serializedVersion: 2
+      Hash: 9dac16f3efc511835ac976dfae55f580
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: VariableJoystick
+  - hash:
+      serializedVersion: 2
+      Hash: ce669872a2be11bc686ea22961d8a3bb
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Joystick
+  - hash:
+      serializedVersion: 2
+      Hash: ce669872a2be11bc686ea22961d8a3bb
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: FixedJoystick
   platform: 13
   scenePathNames:
   - Assets/Scenes/Twoships.unity

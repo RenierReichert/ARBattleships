@@ -5,71 +5,68 @@ using UnityEngine.UI;
 using Photon.Pun;
 public class BoatControl : MonoBehaviourPunCallbacks
 {
-    public Text debugText;
-    
-    public Button leftCannon, rightCannon;
-    public Rigidbody boat, cannonBall;
-    public GameObject mast;
-    public GameObject portSideCannon, starBoardCannon;
+
+    public Rigidbody boat;       
     public List<GameObject> leftHittable, rightHittable;
+    public GameObject portSideCannon, starBoardCannon;
+    public GameObject mast;
+    public int hits = 3;
+    public Canvas hpAboveShip;
+    public Text boatHitPoints;
     protected Vector3 sailingDirection;
-    private Slider sails, wheel;
+    private Joystick joystick;
     private float verticalInput, horizontalInput;
     private Material myBoat;
-    private int hits = 0;
+    private Button leftCannon, rightCannon;
+    private Text hitpoints;
+    private Image leftDisabled, rightDisabled;
+    private float displacementAmount;
+    private GameObject arCamera;
 
     private void Start()
     {
-        sails = GameObject.Find("Canvas/Sailslider").GetComponent<Slider>();
-        wheel = GameObject.Find("Canvas/ToBeWheel").GetComponent<Slider>();
+        joystick = GameObject.Find("Canvas/Fixed Joystick").GetComponent<Joystick>();
         leftCannon = GameObject.Find("Canvas/LeftCannon").GetComponent<Button>();
         rightCannon = GameObject.Find("Canvas/RightCannon").GetComponent<Button>();
-
-        // Joystick controls?
+        hitpoints = GameObject.Find("Canvas/HP").GetComponent<Text>();
+        leftDisabled = GameObject.Find("Canvas/LeftCannon/Disabled").GetComponent<Image>();
+        rightDisabled = GameObject.Find("Canvas/RightCannon/Disabled").GetComponent<Image>();
+        arCamera = GameObject.Find("ARCamera");
+        hitpoints.text = hits.ToString();
 
         leftCannon.onClick.AddListener(ShootLeftCannon);
         rightCannon.onClick.AddListener(ShootRightCannon);
+        leftDisabled.fillAmount = 0;
+        rightDisabled.fillAmount = 0;
+        displacementAmount = this.GetComponentInChildren<Floatscript>().displacementAmount;
+        StartCoroutine(FaceCamera());
 
         myBoat = Resources.Load<Material>("Materials/pinktexture");
-        if (this.photonView.IsMine)
+        if (photonView.IsMine)
         {
             GetComponent<MeshRenderer>().material = (myBoat);
         }
     }
     private void FixedUpdate()
     {
-        verticalInput = Input.GetAxis("Vertical");//sails.value; 
-        horizontalInput = Input.GetAxis("Horizontal");//wheel.value;
-
+        verticalInput = joystick.Vertical;
+        horizontalInput = joystick.Horizontal;
         sailingDirection = transform.forward * verticalInput;
 
-
-        //Boat should not be able to sail itself downwards or upwards strongly, TODO: Less realistic more arcade-y
-        sailingDirection.y /= 8;
-        boat.AddForce(sailingDirection, ForceMode.Acceleration);
-
-        boat.AddTorque(transform.up * horizontalInput * 0.5f);
-    }
-
-    private void UpdateSails()
-    {
-        verticalInput = sails.value;
-    }
-
-    private void UpdateWheel()
-    {
-        horizontalInput = wheel.value;
-        // TODO: Wheel animation
+        //Boat should not be able to sail itself downwards or upwards strongly.
+        sailingDirection.y /= 4;
+        boat.AddForce(sailingDirection * 5, ForceMode.Acceleration);
+        boat.AddTorque(transform.up * horizontalInput, ForceMode.Acceleration);
     }
 
     private void ShootLeftCannon()
     {
-        if (!this.photonView.IsMine)
+        if (!this.photonView.IsMine || !leftCannon.enabled)
             return;
 
         boat.AddForceAtPosition(boat.transform.right * 3 , mast.transform.position , ForceMode.Impulse);
+        StartCoroutine(CannonCooldown(leftDisabled, leftCannon));
 
-        
         if (leftHittable.Count > 0)
             HitLeftCannon();
         else
@@ -97,11 +94,12 @@ public class BoatControl : MonoBehaviourPunCallbacks
 
     private void ShootRightCannon()
     {
-        if (!this.photonView.IsMine)
+        if (!this.photonView.IsMine || !rightCannon.enabled)
             return;
 
         boat.AddForceAtPosition(boat.transform.right * -3, mast.transform.position, ForceMode.Impulse);
-        Debug.Log(GetComponent<MeshRenderer>().material);
+        StartCoroutine(CannonCooldown(rightDisabled, rightCannon));
+        
         if (rightHittable.Count > 0)
             HitRightCannon();
         else
@@ -129,9 +127,6 @@ public class BoatControl : MonoBehaviourPunCallbacks
     }
     private void OnTriggerEnter(Collider cannonHit)
     {
-        // Debug.Log("Collided with: " + cannonHit.gameObject.name + cannonHit.gameObject.layer);
-
-
         switch (cannonHit.gameObject.layer)
         {
             case 8:
@@ -139,20 +134,92 @@ public class BoatControl : MonoBehaviourPunCallbacks
             case 7:
                 boat.AddForceAtPosition(cannonHit.GetComponent<Rigidbody>().velocity * 6 + new Vector3(0, 30, 0), boat.transform.position, ForceMode.Impulse);
                 boat.AddTorque(boat.transform.forward * 60, ForceMode.Impulse);
-                hits++;
-                if (hits > 3)
+                hits--;
+                if(photonView.IsMine)
+                    hitpoints.text = hits.ToString();
+                boatHitPoints.text = hits.ToString();
+                if (hits <= 0)
                 {
-                    boat.transform.position = new Vector3(0, 1, 0);
-                    hits = 0;
+                    StartCoroutine(Sunken());
                 }
-
                 Destroy(cannonHit, 0.2f);                
                 break;
 
             case 6:
-                boat.AddForceAtPosition((cannonHit.GetComponent<Rigidbody>().position - boat.position) * -50, cannonHit.transform.position, ForceMode.Force);
+                boat.AddForceAtPosition((cannonHit.GetComponent<Rigidbody>().position - boat.position) * -50, cannonHit.transform.position, ForceMode.Impulse);
                 break;
         }
     }
 
+    private void OnTriggerStay(Collider stuckObject)
+    {
+        if(stuckObject.gameObject.layer == 6)
+        {
+            boat.AddForceAtPosition((stuckObject.GetComponent<Rigidbody>().position - boat.position).normalized * 5, stuckObject.transform.position, ForceMode.Force);
+        }
+    }
+
+    IEnumerator CannonCooldown(Image disabled, Button cannon)
+    {
+        cannon.enabled = false;
+        for (float i = 1; i > 0; i -= 0.01f)
+        {
+            disabled.fillAmount = i;
+            yield return new WaitForSeconds(.02f);
+        }
+        cannon.enabled = true;
+        yield break;
+    }
+
+    IEnumerator Sunken()
+    {
+        for (float i = 0.1f; i > 0; i -= 0.01f)
+        {
+            foreach(Floatscript childFloater in transform.GetComponentsInChildren<Floatscript>())
+            {
+                childFloater.displacementAmount = displacementAmount * i;
+            }
+            yield return new WaitForSeconds(.5f);
+        }
+        foreach (Floatscript childFloater in transform.GetComponentsInChildren<Floatscript>())
+        {
+            childFloater.displacementAmount = displacementAmount;
+        }
+
+        boat.transform.position = new Vector3(0, 1, 0);
+        boat.velocity = Vector3.zero;
+        boat.angularVelocity = Vector3.zero;
+        boat.rotation = Quaternion.Euler(Vector3.zero);
+        hits = 3;
+        if(photonView.IsMine)
+            hitpoints.text = hits.ToString();
+        yield break;
+
+    }
+
+    IEnumerator FaceCamera()
+    {
+        while (true)
+        {
+            yield return new WaitForFixedUpdate();
+            hpAboveShip.transform.LookAt(2 * transform.position - arCamera.transform.position);
+
+            Debug.Log("Boat HP:" + hpAboveShip.transform.rotation);
+        }
+    }
+
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.IsWriting)
+        {
+            int hitsvalue = hits;
+            stream.Serialize(ref hitsvalue);
+        }
+        else
+        {
+            int hitsvalue = 0;
+            stream.Serialize(ref hitsvalue);
+            hits = hitsvalue;
+        }
+    }
 }

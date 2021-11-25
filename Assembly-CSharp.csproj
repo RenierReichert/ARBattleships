@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{2D3692A6-0F89-B1F2-5F97-9C7C4D5B2698}</ProjectGuid>
+    <ProjectGuid>{AB93BBB8-C797-6827-39AA-F4839531397D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -76,6 +76,11 @@
     <Compile Include="Assets\Scripts\Floatscript.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\Common\TextToggleIsOnTransition.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\Common\OnStartDelete.cs" />
+    <Compile Include="Assets\Joystick Pack\Scripts\Joysticks\DynamicJoystick.cs" />
+    <Compile Include="Assets\Joystick Pack\Scripts\Joysticks\FloatingJoystick.cs" />
+    <Compile Include="Assets\Joystick Pack\Scripts\Joysticks\VariableJoystick.cs" />
+    <Compile Include="Assets\Joystick Pack\Scripts\Base\Joystick.cs" />
+    <Compile Include="Assets\Joystick Pack\Scripts\Joysticks\FixedJoystick.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Photon\PhotonLibs\netstandard2.0\Photon3Unity3D.xml" />
@@ -309,7 +314,7 @@
       <HintPath>Assets\Photon\PhotonLibs\netstandard2.0\Photon3Unity3D.dll</HintPath>
     </Reference>
     <Reference Include="Vuforia.Unity.Wrapper">
-      <HintPath>Library\PackageCache\com.ptc.vuforia.engine@78c75ca24907-1635979565000\Vuforia\Plugins\Managed\Runtime\Vuforia.Unity.Wrapper.dll</HintPath>
+      <HintPath>Library\PackageCache\com.ptc.vuforia.engine@90c8d8d9d5da-1635979565000\Vuforia\Plugins\Managed\Runtime\Vuforia.Unity.Wrapper.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>Library\PackageCache\com.unity.nuget.newtonsoft-json@2.0.0\Runtime\Newtonsoft.Json.dll</HintPath>
@@ -318,7 +323,7 @@
       <HintPath>Assets\Photon\PhotonLibs\WebSocket\websocket-sharp.dll</HintPath>
     </Reference>
     <Reference Include="Vuforia.Unity.Engine">
-      <HintPath>Library\PackageCache\com.ptc.vuforia.engine@78c75ca24907-1635979565000\Vuforia\Plugins\Managed\Runtime\Vuforia.Unity.Engine.dll</HintPath>
+      <HintPath>Library\PackageCache\com.ptc.vuforia.engine@90c8d8d9d5da-1635979565000\Vuforia\Plugins\Managed\Runtime\Vuforia.Unity.Engine.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.22f1\Editor\Data\NetStandard\ref\2.0.0\netstandard.dll</HintPath>
@@ -740,47 +745,47 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="PhotonChat.csproj">
-      <Project>{13FEAE1E-5A5C-4C1D-1BCD-5CCF8A550546}</Project>
+      <Project>{C0DF4BF4-1692-CD57-3D38-67BBD8630684}</Project>
       <Name>PhotonChat</Name>
     </ProjectReference>
     <ProjectReference Include="PhotonUnityNetworking.Editor.csproj">
-      <Project>{6B0813EF-56B3-774B-29A5-7394A675CC9D}</Project>
+      <Project>{6F4836A4-AF6D-22E9-58B7-961B6364E7AD}</Project>
       <Name>PhotonUnityNetworking.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="PhotonUnityNetworking.Utilities.PhotonPlayer.Editor.csproj">
-      <Project>{84E84EF2-C773-D8DD-43DD-5F08FBC128BE}</Project>
+      <Project>{90F54E44-DF75-A0E6-2499-C479D5F6FEFE}</Project>
       <Name>PhotonUnityNetworking.Utilities.PhotonPlayer.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="EditorMigrationScripts.csproj">
-      <Project>{AAB2E6AF-A29C-9ECE-39EE-D88E71DBE9A0}</Project>
+      <Project>{C9BEA527-CBD6-F84A-9A71-32CA3E547869}</Project>
       <Name>EditorMigrationScripts</Name>
     </ProjectReference>
     <ProjectReference Include="PunDemos.DemoHubEditor.csproj">
-      <Project>{2B3353F2-4D72-0DB2-DF58-F14B405D0C2D}</Project>
+      <Project>{CA0181B3-9E8B-7022-CAA2-6581D34FDCB0}</Project>
       <Name>PunDemos.DemoHubEditor</Name>
     </ProjectReference>
     <ProjectReference Include="PhotonRealtime.csproj">
-      <Project>{CCE69E4D-FF30-4F2C-2938-0C8FB10EED04}</Project>
+      <Project>{C3BD00F1-8B29-D721-1858-1D90C56D8618}</Project>
       <Name>PhotonRealtime</Name>
     </ProjectReference>
     <ProjectReference Include="PhotonUnityNetworking.Utilities.csproj">
-      <Project>{31A6CF99-E71B-D50C-00D9-8B682338F5F8}</Project>
+      <Project>{A5A5B0AF-A08D-54C2-190D-DA6899C58478}</Project>
       <Name>PhotonUnityNetworking.Utilities</Name>
     </ProjectReference>
     <ProjectReference Include="PhotonUnityNetworking.csproj">
-      <Project>{4F323D44-3046-F506-2746-63954E3C2B36}</Project>
+      <Project>{8166A413-F3A8-581A-B93C-0F2B401F03CA}</Project>
       <Name>PhotonUnityNetworking</Name>
     </ProjectReference>
     <ProjectReference Include="PhotonUnityNetworking.Demos.csproj">
-      <Project>{2758AD82-3EBC-36A4-6744-8DDE3BA50E5E}</Project>
+      <Project>{C15AD553-30B9-8FC7-88B5-89EB74151F83}</Project>
       <Name>PhotonUnityNetworking.Demos</Name>
     </ProjectReference>
     <ProjectReference Include="PunDemos.DemoSlotcarEditor.csproj">
-      <Project>{3FB5F822-B845-5B76-06DA-CBAB4756ECEC}</Project>
+      <Project>{1EE1BDA0-E7F5-2E38-7F9D-65CC3E9793D2}</Project>
       <Name>PunDemos.DemoSlotcarEditor</Name>
     </ProjectReference>
     <ProjectReference Include="PhotonUnityNetworking.Utilities.Culling.Editor.csproj">
-      <Project>{4FEB3ED4-EE60-C989-D474-455A4533C385}</Project>
+      <Project>{FB300421-508A-AEC4-8E88-4992B0A0DF6B}</Project>
       <Name>PhotonUnityNetworking.Utilities.Culling.Editor</Name>
     </ProjectReference>
   </ItemGroup>
