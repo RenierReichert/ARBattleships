@@ -191,6 +191,7 @@ public class BoatControl : MonoBehaviourPunCallbacks
         boat.angularVelocity = Vector3.zero;
         boat.rotation = Quaternion.Euler(Vector3.zero);
         hits = 3;
+        boatHitPoints.text = hits.ToString();
         if(photonView.IsMine)
             hitpoints.text = hits.ToString();
         yield break;
@@ -203,8 +204,6 @@ public class BoatControl : MonoBehaviourPunCallbacks
         {
             yield return new WaitForFixedUpdate();
             hpAboveShip.transform.LookAt(2 * transform.position - arCamera.transform.position);
-
-            Debug.Log("Boat HP:" + hpAboveShip.transform.rotation);
         }
     }
 

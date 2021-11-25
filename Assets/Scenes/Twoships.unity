@@ -1786,7 +1786,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1095405811}
   m_CullTransparentMesh: 1
---- !u!21 &1145867720
+--- !u!21 &1122568281
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
@@ -1795,7 +1795,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: 'Astronaut-scaledMaterial
 
-    40354'
+    60984'
   m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
@@ -2228,7 +2228,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1341499011}
-  m_Mesh: {fileID: 1546114075}
+  m_Mesh: {fileID: 1547891128}
 --- !u!23 &1341499013
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2248,7 +2248,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 1145867720}
+  - {fileID: 1122568281}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2456,13 +2456,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7149a7a7f80b8454d9495c94f1d93b31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!43 &1546114075
+--- !u!43 &1547891128
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: ImageTargetMesh32672
+  m_Name: ImageTargetMesh60974
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
