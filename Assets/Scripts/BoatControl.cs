@@ -144,7 +144,6 @@ public class BoatControl : MonoBehaviourPunCallbacks
                 }
                 Destroy(cannonHit, 0.2f);                
                 break;
-
             case 6:
                 boat.AddForceAtPosition((cannonHit.GetComponent<Rigidbody>().position - boat.position) * -50, cannonHit.transform.position, ForceMode.Impulse);
                 break;

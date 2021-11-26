@@ -111,71 +111,71 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1666}
     - Class: 114
-      Script: {instanceID: 1782}
+      Script: {instanceID: 1786}
     - Class: 114
-      Script: {instanceID: 1826}
+      Script: {instanceID: 1830}
     - Class: 114
-      Script: {instanceID: 1862}
+      Script: {instanceID: 1868}
     - Class: 114
-      Script: {instanceID: 1866}
+      Script: {instanceID: 1872}
     - Class: 114
-      Script: {instanceID: 2436}
+      Script: {instanceID: 2224}
     - Class: 114
-      Script: {instanceID: 2498}
+      Script: {instanceID: 2446}
     - Class: 114
-      Script: {instanceID: 2672}
+      Script: {instanceID: 2508}
     - Class: 114
-      Script: {instanceID: 2724}
+      Script: {instanceID: 2682}
     - Class: 114
-      Script: {instanceID: 2898}
+      Script: {instanceID: 2734}
     - Class: 114
-      Script: {instanceID: 2936}
+      Script: {instanceID: 2908}
     - Class: 114
-      Script: {instanceID: 3022}
+      Script: {instanceID: 2946}
     - Class: 114
-      Script: {instanceID: 3078}
+      Script: {instanceID: 3032}
     - Class: 114
-      Script: {instanceID: 3092}
+      Script: {instanceID: 3088}
     - Class: 114
-      Script: {instanceID: 3094}
+      Script: {instanceID: 3102}
     - Class: 114
-      Script: {instanceID: 3232}
+      Script: {instanceID: 3104}
     - Class: 114
-      Script: {instanceID: 3262}
+      Script: {instanceID: 3242}
     - Class: 114
-      Script: {instanceID: 3616}
+      Script: {instanceID: 3272}
     - Class: 114
-      Script: {instanceID: 3624}
+      Script: {instanceID: 3626}
     - Class: 114
       Script: {instanceID: 3634}
     - Class: 114
-      Script: {instanceID: 3746}
+      Script: {instanceID: 3644}
     - Class: 114
-      Script: {instanceID: 4410}
+      Script: {instanceID: 3756}
     - Class: 114
-      Script: {instanceID: 4726}
+      Script: {instanceID: 4422}
     - Class: 114
-      Script: {instanceID: 4768}
+      Script: {instanceID: 4738}
     - Class: 114
-      Script: {instanceID: 4772}
+      Script: {instanceID: 4780}
     - Class: 114
-      Script: {instanceID: 4928}
+      Script: {instanceID: 4784}
     - Class: 114
-      Script: {instanceID: 5112}
+      Script: {instanceID: 4940}
     - Class: 114
-      Script: {instanceID: 5156}
+      Script: {instanceID: 5124}
     - Class: 114
-      Script: {instanceID: 5226}
+      Script: {instanceID: 5168}
     - Class: 114
-      Script: {instanceID: 5364}
+      Script: {instanceID: 5238}
     - Class: 114
-      Script: {instanceID: 5750}
+      Script: {instanceID: 5376}
     - Class: 114
-      Script: {instanceID: 5922}
+      Script: {instanceID: 5762}
     - Class: 114
-      Script: {instanceID: 6284}
+      Script: {instanceID: 5934}
     - Class: 114
-      Script: {instanceID: 18334}
+      Script: {instanceID: 6296}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -249,6 +249,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: Photon.Realtime.Demo
     className: ConnectAndJoinRandomLb
+  - hash:
+      serializedVersion: 2
+      Hash: 824e8d4cb47ffd88ddf959dbd4526585
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: DynamicJoystick
   - hash:
       serializedVersion: 2
       Hash: 24c74cc0d527a06113f2b967042769f0
@@ -389,6 +395,12 @@ ScriptsOnlyBuild:
     className: HorizontalLayoutGroup
   - hash:
       serializedVersion: 2
+      Hash: ce669872a2be11bc686ea22961d8a3bb
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Joystick
+  - hash:
+      serializedVersion: 2
       Hash: 55fd795e51da61232a17e9ce0af59f52
     assemblyName: PhotonUnityNetworking.Demos.dll
     namespaceName: Photon.Pun.Demo.Asteroids
@@ -485,10 +497,22 @@ ScriptsOnlyBuild:
     className: IngameControlPanel
   - hash:
       serializedVersion: 2
+      Hash: ce669872a2be11bc686ea22961d8a3bb
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: FixedJoystick
+  - hash:
+      serializedVersion: 2
       Hash: c3d3430df9e3ea95e3e3d587961390fb
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: GroupTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 9dac16f3efc511835ac976dfae55f580
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: VariableJoystick
   - hash:
       serializedVersion: 2
       Hash: 800c50acba124432abb4cf0d47202e06
@@ -2003,12 +2027,6 @@ ScriptsOnlyBuild:
     className: SetRoomCustomPropertyUIForm
   - hash:
       serializedVersion: 2
-      Hash: 254aced5d715eaed21bcea91c61c8439
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: Blockspin
-  - hash:
-      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: PhotonUnityNetworking.Demos.dll
     namespaceName: Photon.Pun.Demo.Hub
@@ -2037,6 +2055,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.EventSystems
     className: EventTrigger
+  - hash:
+      serializedVersion: 2
+      Hash: ce669872a2be11bc686ea22961d8a3bb
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: FloatingJoystick
   - hash:
       serializedVersion: 2
       Hash: ee1dba1a186ac062d564e9eb73a1c56f
@@ -3189,37 +3213,7 @@ ScriptsOnlyBuild:
     assemblyName: PhotonUnityNetworking.Demos.dll
     namespaceName: Photon.Pun.Demo.Cockpit.Forms
     className: UserIdUiForm
-  - hash:
-      serializedVersion: 2
-      Hash: 824e8d4cb47ffd88ddf959dbd4526585
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: DynamicJoystick
-  - hash:
-      serializedVersion: 2
-      Hash: ce669872a2be11bc686ea22961d8a3bb
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: FloatingJoystick
-  - hash:
-      serializedVersion: 2
-      Hash: 9dac16f3efc511835ac976dfae55f580
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: VariableJoystick
-  - hash:
-      serializedVersion: 2
-      Hash: ce669872a2be11bc686ea22961d8a3bb
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: Joystick
-  - hash:
-      serializedVersion: 2
-      Hash: ce669872a2be11bc686ea22961d8a3bb
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: FixedJoystick
   platform: 13
   scenePathNames:
   - Assets/Scenes/Twoships.unity
-  playerPath: D:/Unity AR/ARBattleships/Two Ships.apk
+  playerPath: D:/Unity AR/Battleshiptry2/Android version.apk
