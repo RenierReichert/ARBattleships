@@ -1,21 +1,5 @@
-!! Note !!
-This project doesnt work out-of-the-box, as some of the necesarry vuforia engine files had to be exclused as they were over 100mb.
+This is an AR, multiplayer, multi-platform game I made.
+It was made using Unity, along with the Photon and and Vuforia packages.
 
-
-
-
-
-
-
-
-
-
-
-
-
-Note to self:
-
-Include the ARCore plugin package from unity asset marketplace.
-Be on Unity 2020+ when creating the project.
-Install ARCore on the android phone.
-THEN Add Vuforia
+To try it out for yourself, you will find a PC version and an android version in the Demos folder, along with a screenshot of the gameplay.
+The android version requires an android API of version 8.0 or higher.
